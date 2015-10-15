@@ -1,20 +1,32 @@
 class ApprenticeStep < Step
   include ActionableStep
 
-  def options
-    [
-      Option.new(value: Character::Types::GRAVEDIGGER, label: Character::Types::Labels[GRAVEDIGGER]),
-      Option.new(value: Character::Types::PRIEST, label: Character::Types::Labels[PRIEST])
-    ]
-  end
+  private
 
-  def action
+    def options
+      gravedigger = Gravedigger.new
+      priest = Priest.new
+      [
+        Option.new(value: gravedigger.value, label: gravedigger.label),
+        Option.new(value: priest.value, label: priest.label)
+      ]
+    end
 
-    # implemented by class
-  end
+    def message
+      [ask, options_message].join(" ")
+    end
 
-  def ask
-    # implemented by class
-  end
+    def parsed_response
+      response.to_sym
+    end
+
+    def action
+      player = game.find_players_by_character(parsed_response).first
+      player.character = value.to_s.classify.new
+    end
+
+    def ask
+      "Apprentice, wake up. Which do you want to become?"
+    end
 
 end

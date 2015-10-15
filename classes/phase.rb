@@ -37,4 +37,8 @@ class Phase
       # implemented by subclass
     end
 
+    def build_step(step_class)
+      step_class.new(phase: self)
+    end
+
 end

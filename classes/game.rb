@@ -28,6 +28,10 @@ class Game
     game.surviving_evil_players >= game.surviving_good_players
   end
 
+  def find_players_by_character(value)
+    players.find_all {|player| player.character.value == value }
+  end
+
   private
 
     def next_phase
