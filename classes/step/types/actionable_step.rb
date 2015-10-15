@@ -29,7 +29,7 @@ module ActionableStep
     end
 
     def parsed_response
-      raise "parsed_response is a required method for an actionable step"
+      response
     end
 
     def check_if_valid_response
