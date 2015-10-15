@@ -14,17 +14,17 @@ number_players = 8
 witches = 2
 villagers = 6
 
-characters = [Witch.new, Witch.new, Priest.new, Gravedigger.new, Judge.new, Peasant.new, Peasant.new, Peasant.new]
+characters = [Witch.new, Witch.new, Priest.new, Gravedigger.new, Judge.new, Apprentice.new, Peasant.new, Peasant.new]
 
 players = 8.times.map do |i|
   Player.new(id: i, character: characters[i])
 end
 
-game = Game.new(players: players)
+@game = Game.new(players: players)
 
 night_0_steps = [
   StaticStep.new(moderator_message: "Witches wake up"),
-  ActionableStep.new(moderator_message: "Apprentice, who do you want to shadow?")
+  ActionableStep.new(moderator_message: "Apprentice, who do you want to shadow?", action: :shadow, actionable: Apprentice)
 ]
 
 binding.pry
