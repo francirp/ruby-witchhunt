@@ -16,6 +16,13 @@ FolderRequirer.new(folder_path: "phase", file_names: phase_files)
 FolderRequirer.new(folder_path: "step/types", file_names: step_type_files)
 FolderRequirer.new(folder_path: "step", file_names: step_files)
 
-game_generator = GameGenerator.new(players: 7)
+puts "How many players are there?"
+players = gets.chomp.to_i
+while players < 7
+  puts "You must have at least 7 players. How many do you want?"
+  players = gets.chomp.to_i
+end
+
+game_generator = GameGenerator.new(players: players)
 
 Game.new(players: game_generator.players).play
