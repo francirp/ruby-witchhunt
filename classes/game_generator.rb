@@ -22,7 +22,8 @@ class GameGenerator
       end
       players.flatten!
       while players.count < number_players
-        players << generate_character_and_player(Peasant, players.count + 1)
+        peasants = players.find_all { |player| player.character.value == :peasant }
+        players << generate_character_and_player(Peasant, peasants.count)
       end
       return players
     end

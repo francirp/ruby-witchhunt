@@ -9,8 +9,8 @@ class Player
     @alive = true
   end
 
-  def kill
-    alive = false
+  def kill!
+    @alive = false
   end
 
   def alive?

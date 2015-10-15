@@ -12,11 +12,6 @@ module ActionableStep
 
   private
 
-    def check_if_valid_response
-      option = options.detect { |option| option.value == parsed_response }
-      @valid = option.present?
-    end
-
     def options
       # implemented by class
       raise "options is a required method for an actionable step"
@@ -32,15 +27,24 @@ module ActionableStep
       raise "ask is a required method for an actionable step"
     end
 
+    def parsed_response
+      raise "parsed_response is a required method for an actionable step"
+    end
+
+    def check_if_valid_response
+      option = options.detect { |option| option.value == parsed_response }
+      @valid = option.present?
+    end
+
     def options_message
       option_messages = options.map do |option|
         "#{option.value} for #{option.label}"
       end
-      option_messages.join(", or ").prepend("(") << ")"
+      option_messages.join(", ").prepend("(") << ")"
     end
 
-    def parsed_response
-      raise "parsed_response is a required method for an actionable step"
+    def message
+      [ask, options_message].join(" ")
     end
 
 end

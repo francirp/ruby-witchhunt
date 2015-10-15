@@ -13,15 +13,20 @@ class Game
     while !finished
       current_phase.run
       @current_phase = next_phase
+      binding.pry
     end
   end
 
   def surviving_good_players
-    players.find_all { |player| player.alive? && player.character.good? }
+    surviving_players.find_all { |player| player.alive? && player.character.good? }
   end
 
   def surviving_evil_players
-    players.find_all { |player| player.alive? && player.character.evil? }
+    surviving_players.find_all { |player| player.alive? && player.character.evil? }
+  end
+
+  def surviving_players
+    players.find_all { |player| player.alive? }
   end
 
   def should_end?
@@ -29,7 +34,11 @@ class Game
   end
 
   def find_players_by_character(value)
-    players.find_all {|player| player.character.value == value }
+    players.find_all { |player| player.character.value == value }
+  end
+
+  def find_player_by_id(id)
+    players.detect { |player| player.id == id }
   end
 
   private

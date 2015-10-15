@@ -12,16 +12,12 @@ class ApprenticeStep < Step
       ]
     end
 
-    def message
-      [ask, options_message].join(" ")
-    end
-
     def parsed_response
       response.to_sym
     end
 
     def action
-      player = game.find_players_by_character(parsed_response).first
+      player = game.find_players_by_character(:apprentice).first
       player.character = parsed_response.to_s.classify.constantize.new
     end
 

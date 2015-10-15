@@ -22,7 +22,7 @@ class Step
     end
 
     def message
-      # implemented by subclass
+      raise "all steps must implement message method"
     end
 
     def retrieve_response
