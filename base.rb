@@ -17,5 +17,5 @@ FolderRequirer.new(folder_path: "step/types", file_names: step_type_files)
 FolderRequirer.new(folder_path: "step", file_names: step_files)
 
 game_generator = GameGenerator.new
-binding.pry
+
 Game.new(players: game_generator.players).play

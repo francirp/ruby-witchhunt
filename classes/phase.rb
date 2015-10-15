@@ -16,15 +16,15 @@ class Phase
   end
 
   def first_night?
-    self.class == "FirstNight"
+    self.class.name == "FirstNight"
   end
 
   def night?
-    self.class == "Night"
+    self.class.name == "Night"
   end
 
   def day?
-    self.class == "Day"
+    self.class.name == "Day"
   end
 
   private

@@ -1,7 +1,7 @@
 class Step
 
   attr_reader :phase
-  attr_accessor :response
+  attr_accessor :response, :valid
 
   def initialize(args = {})
     @phase = args[:phase]
@@ -31,6 +31,10 @@ class Step
 
     def should_happen?
       true
+    end
+
+    def check_if_valid_response
+      raise "all steps must implement check_if_valid_response method"
     end
 
 end

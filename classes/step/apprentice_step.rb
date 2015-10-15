@@ -22,7 +22,7 @@ class ApprenticeStep < Step
 
     def action
       player = game.find_players_by_character(parsed_response).first
-      player.character = value.to_s.classify.new
+      player.character = parsed_response.to_s.classify.constantize.new
     end
 
     def ask

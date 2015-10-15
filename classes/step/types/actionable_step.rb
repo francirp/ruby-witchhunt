@@ -1,22 +1,20 @@
 module ActionableStep
 
-  attr_accessor :option_successfully_selected
-
   def run
-    @option_successfully_selected = false
-    while !option_successfully_selected
+    @valid = false
+    while !valid
       puts message
       retrieve_response
-      check_if_valid_option
+      check_if_valid_response
     end
     action
   end
 
   private
 
-    def check_if_valid_option
+    def check_if_valid_response
       option = options.detect { |option| option.value == parsed_response }
-      @option_successfully_selected = !option.nil?
+      @valid = option.present?
     end
 
     def options

@@ -20,7 +20,7 @@ class GameGenerator
         end
         players_for_character
       end
-      players.flatten
+      players.flatten!
       while players.count < number_players
         players << generate_character_and_player(Peasant, players.count + 1)
       end

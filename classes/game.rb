@@ -9,10 +9,10 @@ class Game
   end
 
   def play
-    current_phase = FirstNight.new(game: self)
+    @current_phase = FirstNight.new(game: self)
     while !finished
       current_phase.run
-      current_phase = next_phase
+      @current_phase = next_phase
     end
   end
 
@@ -25,7 +25,7 @@ class Game
   end
 
   def should_end?
-    game.surviving_evil_players >= game.surviving_good_players
+    surviving_evil_players.count >= surviving_good_players.count
   end
 
   def find_players_by_character(value)
