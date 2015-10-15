@@ -15,9 +15,14 @@ Have fun and stay alive!
 
 ## Phases
 
-Currently, there are three types of phases: FirstNight, Day, and Night. Each phase has steps.
+Currently, there are three types of phases:
+  - FirstNight
+  - Day
+  - Night
 
-For example, on the first night of the game, an apprentice must decide to become a Grave Digger or a Priest. Then the witches must wake up and identify each other. We refer to both of these as steps.
+Each phase has steps.
+
+For example, on the first night of the game, an apprentice must decide to become a Grave Digger or a Priest (classes/step/apprentice_step.rb). Then the witches must wake up and identify each other (classes/step/wake_up_witches_step.rb).
 
 ## Steps
 
