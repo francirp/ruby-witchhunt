@@ -1,0 +1,3 @@
+class Night < Phase
+
+end

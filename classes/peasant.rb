@@ -1,3 +1,0 @@
-class Peasant < Character
-
-end

@@ -1,12 +1,15 @@
 class Step
 
-  attr_reader :time_limit, :moderator_message
-  attr_accessor :response
+  def run
+    # implemented by subclass
+  end
 
-  def initialize(args = {})
-    @time_limit = args[:time_limit]
-    @moderator_message = args[:moderator_message]
-    @action = args[:action]
+  def message
+    # implemented by subclass
+  end
+
+  def should_happen?
+    true
   end
 
 end

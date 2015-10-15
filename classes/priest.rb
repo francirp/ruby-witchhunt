@@ -1,3 +1,0 @@
-class Priest < Character
-
-end
