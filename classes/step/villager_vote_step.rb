@@ -15,7 +15,7 @@ class VillagerVoteStep < Step
   def action
     player = game.find_player_by_id(parsed_response)
     if parsed_response != NONE_VALUE
-      player.kill!
+      player.vote_off!
       phase.decided = true
     else
       phase.decided = false

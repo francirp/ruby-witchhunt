@@ -1,15 +1,15 @@
 class Angel < Character
 
   def team
-    Team::EVIL
+    Team::GOOD
   end
 
   def value
-    :demon
+    :angel
   end
 
   def label
-    "Demon"
+    "Angel"
   end
 
   def self.allowed_at_start?

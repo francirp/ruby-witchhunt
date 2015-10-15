@@ -5,6 +5,7 @@ class Step
 
   def initialize(args = {})
     @phase = args[:phase]
+    raise "phase must be passed to #{self.class.name}" if @phase.nil?
     after_init(args)
   end
 

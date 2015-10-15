@@ -16,6 +16,11 @@ class Game
       @current_phase.run
       @current_phase = next_phase
     end
+    puts winning_team_message
+  end
+
+  def surviving_players
+    players.find_all { |player| player.alive? }
   end
 
   def surviving_good_players
@@ -26,8 +31,8 @@ class Game
     surviving_players.find_all { |player| player.alive? && player.character.evil? }
   end
 
-  def surviving_players
-    players.find_all { |player| player.alive? }
+  def surviving_players_other_than_character(value)
+    surviving_players.find_all { |player| player.character.value != value }
   end
 
   def should_end?
@@ -44,6 +49,11 @@ class Game
 
   def last_phase
     phases[-2]
+  end
+
+  def winning_team_message
+    team = surviving_evil_players.count >= surviving_good_players.count ? "evil" : "good"
+    return "The #{team} team won!"
   end
 
   private

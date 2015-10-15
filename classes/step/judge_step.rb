@@ -10,7 +10,7 @@ class JudgeStep < Step
 
   def action
     player = game.find_player_by_id(parsed_response)
-    player.kill!
+    player.vote_off!
   end
 
   def ask

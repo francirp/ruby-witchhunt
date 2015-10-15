@@ -42,4 +42,8 @@ class Phase
       step_class.new(phase: self)
     end
 
+    def finish_game
+      game.finished = true
+    end
+
 end

@@ -8,6 +8,7 @@ module ActionableStep
       check_if_valid_response
     end
     action
+    puts
   end
 
   private

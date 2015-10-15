@@ -8,6 +8,7 @@ module StaticStep
       retrieve_response
       check_if_valid_response
     end
+    puts
   end
 
   private
