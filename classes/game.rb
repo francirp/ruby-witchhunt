@@ -36,7 +36,15 @@ class Game
   end
 
   def should_end?
+    evil_won? || good_won?
+  end
+
+  def evil_won?
     surviving_evil_players.count >= surviving_good_players.count
+  end
+
+  def good_won?
+    surviving_evil_players.count == 0
   end
 
   def find_players_by_character(value)
@@ -52,7 +60,7 @@ class Game
   end
 
   def winning_team_message
-    team = surviving_evil_players.count >= surviving_good_players.count ? "evil" : "good"
+    team = evil_won? ? "evil" : "good"
     return "The #{team} team won!"
   end
 
