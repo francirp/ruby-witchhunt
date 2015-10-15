@@ -1,4 +1,3 @@
-
 # Ruby-Witchhunt
 
 To play the WitchHunt game, pull down this repo and run:
@@ -14,3 +13,6 @@ Have fun and stay alive!
 
 # API for Modifying
 
+=======
+
+Coming soon!
