@@ -1,0 +1,3 @@
+class Gravedigger < Character
+
+end

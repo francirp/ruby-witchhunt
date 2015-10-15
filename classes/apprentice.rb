@@ -1,0 +1,3 @@
+class Apprentice < Character
+
+end

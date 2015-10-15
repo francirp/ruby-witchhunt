@@ -1,0 +1,3 @@
+class Priest < Character
+
+end

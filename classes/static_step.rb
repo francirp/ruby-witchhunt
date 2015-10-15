@@ -1,0 +1,3 @@
+class StaticStep < Step
+
+end
