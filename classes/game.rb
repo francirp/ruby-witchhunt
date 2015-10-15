@@ -1,19 +1,20 @@
 class Game
 
   attr_reader :players
-  attr_accessor :current_phase, :finished
+  attr_accessor :current_phase, :finished, :phases
 
   def initialize(args = {})
     @players = args[:players]
     @finished = false
+    @phases = []
   end
 
   def play
     @current_phase = FirstNight.new(game: self)
     while !finished
-      current_phase.run
+      @phases << @current_phase
+      @current_phase.run
       @current_phase = next_phase
-      binding.pry
     end
   end
 
@@ -39,6 +40,10 @@ class Game
 
   def find_player_by_id(id)
     players.detect { |player| player.id == id }
+  end
+
+  def last_phase
+    phases[-2]
   end
 
   private

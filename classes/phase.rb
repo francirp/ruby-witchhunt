@@ -9,8 +9,9 @@ class Phase
   end
 
   def run
+    puts "starting #{self.class.name} on day #{number} phase"
     steps.each do |step|
-      step.run
+      step.run if step.should_happen?
     end
     finish_game if game.should_end?
   end

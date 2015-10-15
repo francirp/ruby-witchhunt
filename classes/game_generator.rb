@@ -32,7 +32,7 @@ class GameGenerator
       character = character_type.new
       player = Player.new
       player.id = "#{character.value}_#{id}"
-      player.name = player.id
+      player.name = Faker::Name.name
       player.character = character
       player
     end

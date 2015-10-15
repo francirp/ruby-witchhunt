@@ -5,10 +5,15 @@ class Step
 
   def initialize(args = {})
     @phase = args[:phase]
+    after_init(args)
   end
 
   def run
-    # implemented by subclass
+    raise "all steps must implement run method"
+  end
+
+  def should_happen?
+    true
   end
 
   private
@@ -29,12 +34,12 @@ class Step
       @response = gets.chomp
     end
 
-    def should_happen?
-      true
-    end
-
     def check_if_valid_response
       raise "all steps must implement check_if_valid_response method"
+    end
+
+    def after_init(args = {})
+      # optionally implemented by class
     end
 
 end

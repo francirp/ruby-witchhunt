@@ -1,4 +1,4 @@
-class Demon
+class Demon < Character
 
   def team
     Team::EVIL

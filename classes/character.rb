@@ -1,6 +1,9 @@
 class Character
 
+  attr_accessor :visible_team
+
   def initialize(args = {})
+    @visible_team = team
   end
 
   def team
